@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Todo, uppercase } from '@dibog/shared';
 
 @Component({
   selector: 'dibog-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'todos';
+  todos: Todo[] = [{ title: 'Todo 1' }, { title: 'Todo 2' }];
+
+  addTodo() {
+      const title = uppercase(`New todo ${Math.floor(Math.random() * 1000)}`);
+      this.todos.push({ title });
+  }
 }
